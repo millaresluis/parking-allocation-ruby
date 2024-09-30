@@ -19,14 +19,8 @@ loop do
   # Run app action
   case action
   when 'create_parking_lot'
-    slots = input[1].to_i
-
-    if slots > 0
-      parking_allocation_system = ParkingAllocation.new(slots)
-      puts "Created a parking lot with #{slots} slots."
-    else
-      puts "Please enter a valid number."
-    end
+    parking_allocation_system = ParkingAllocation.new(input[1].to_i)
+    puts "Created a parking lot with #{input[1]} slots."
   when 'park'
     vehicle_number = input[1]
     vehicle_color = input[2]
@@ -37,9 +31,9 @@ loop do
   when 'status'
     parking_allocation_system.status
   when 'plate_numbers_for_cars_with_colour'
-
+    parking_allocation_system.plate_numbers_for_cars_with_colour(input[1])
   when 'slot_numbers_for_cars_with_colour'
-
+    parking_allocation_system.slot_numbers_for_cars_with_colour(input[1])
   when 'slot_number_for_registration_number'
 
   else

@@ -20,11 +20,11 @@ class ParkingAllocation
   end
 
   def plate_numbers_for_cars_with_colour(color)
-
+    @parking_lot.find_plates_by_color(color)
   end
 
-  def slot_numbers_for_cars_with_colour(color)
-
+  def slot_numbers_for_cars_with_colour
+    @parking_lot.find_slots_by_color(color)
   end
 
   def slot_number_for_registration_number 
