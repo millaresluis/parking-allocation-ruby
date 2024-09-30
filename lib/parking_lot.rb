@@ -29,7 +29,7 @@ class ParkingLot
   
   def parking_status
     if @slots.compact.any?
-      puts "Slot No. | Registration No. | Color"
+      puts "Slot No. | Registration No. | Colour"
       @slots.each_with_index do |vehicle, index|
         puts "#{index + 1} | #{vehicle.registration_number} | #{vehicle.color}" if vehicle
       end
@@ -38,14 +38,16 @@ class ParkingLot
     end
   end
 
-  def find_plates_by_color(color)
+  def find_vehicles_by_color(color)
     vehicles = @slots.compact.select { |vehicle| vehicle.color == color }
 
     puts vehicles.any? ? vehicles.map(&:registration_number).join(", ") : "Not found."
   end
-  
-  def find_slots_by_color(color)
-    slots = @slots.each_with_index.select { |vehicle, index| vehicle && vehicle.color == color }
+
+  def find_slots_by_attribute(attribute, value)
+    slots = @slots.each_with_index.select do |vehicle, index|
+              attribute == 'color' ? vehicle.color == value : vehicle.registration_number == value if vehicle
+            end
 
     puts slots.any? ? slots.map { |object, index| index + 1 }.join(", ") : "Not found."
   end
