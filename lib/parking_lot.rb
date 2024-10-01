@@ -1,6 +1,4 @@
 class ParkingLot
-  attr_reader :spots
-
   def initialize(slots)
     @slots = Array.new(slots) # Array of nil values
   end
