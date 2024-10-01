@@ -14,6 +14,8 @@ class ParkingLot
     else
       puts "Sorry, parking lot is full."
     end
+    
+    puts ""
   end
 
   def leave_vehicle(slot_number)
@@ -25,6 +27,8 @@ class ParkingLot
     else
       puts "Slot number is empty."
     end
+
+    puts ""
   end
   
   def parking_status
@@ -36,12 +40,15 @@ class ParkingLot
     else
       puts "All parking slots (#{@slots.size}) are available."
     end
+
+    puts ""
   end
 
   def find_vehicles_by_color(color)
     vehicles = @slots.compact.select { |vehicle| vehicle.color == color }
 
     puts vehicles.any? ? vehicles.map(&:registration_number).join(", ") : "Not found."
+    puts ""
   end
 
   def find_slots_by_attribute(attribute, value)
@@ -50,5 +57,6 @@ class ParkingLot
             end
 
     puts slots.any? ? slots.map { |object, index| index + 1 }.join(", ") : "Not found."
+    puts ""
   end
 end
