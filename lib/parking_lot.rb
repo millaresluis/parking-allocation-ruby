@@ -31,7 +31,7 @@ class ParkingLot
   
   def parking_status
     if @slots.compact.any?
-      puts "Slot No. | Registration No. | Colour"
+      puts "Slot No. | Plate No. | Colour"
       @slots.each_with_index do |vehicle, index|
         puts "#{index + 1} | #{vehicle.registration_number} | #{vehicle.color}" if vehicle
       end
